@@ -1,0 +1,145 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$s-basket-name: 's-basket';
+$s-basket-x: 0px;
+$s-basket-y: 0px;
+$s-basket-offset-x: 0px;
+$s-basket-offset-y: 0px;
+$s-basket-width: 28px;
+$s-basket-height: 24px;
+$s-basket-total-width: 64px;
+$s-basket-total-height: 50px;
+$s-basket-image: '../img/sprite.png';
+$s-basket: (0px, 0px, 0px, 0px, 28px, 24px, 64px, 50px, '../img/sprite.png', 's-basket', );
+$s-enter-name: 's-enter';
+$s-enter-x: 51px;
+$s-enter-y: 0px;
+$s-enter-offset-x: -51px;
+$s-enter-offset-y: 0px;
+$s-enter-width: 13px;
+$s-enter-height: 15px;
+$s-enter-total-width: 64px;
+$s-enter-total-height: 50px;
+$s-enter-image: '../img/sprite.png';
+$s-enter: (51px, 0px, -51px, 0px, 13px, 15px, 64px, 50px, '../img/sprite.png', 's-enter', );
+$s-nav-next-name: 's-nav-next';
+$s-nav-next-x: 29px;
+$s-nav-next-y: 0px;
+$s-nav-next-offset-x: -29px;
+$s-nav-next-offset-y: 0px;
+$s-nav-next-width: 21px;
+$s-nav-next-height: 15px;
+$s-nav-next-total-width: 64px;
+$s-nav-next-total-height: 50px;
+$s-nav-next-image: '../img/sprite.png';
+$s-nav-next: (29px, 0px, -29px, 0px, 21px, 15px, 64px, 50px, '../img/sprite.png', 's-nav-next', );
+$s-nav-prev-name: 's-nav-prev';
+$s-nav-prev-x: 29px;
+$s-nav-prev-y: 16px;
+$s-nav-prev-offset-x: -29px;
+$s-nav-prev-offset-y: -16px;
+$s-nav-prev-width: 21px;
+$s-nav-prev-height: 15px;
+$s-nav-prev-total-width: 64px;
+$s-nav-prev-total-height: 50px;
+$s-nav-prev-image: '../img/sprite.png';
+$s-nav-prev: (29px, 16px, -29px, -16px, 21px, 15px, 64px, 50px, '../img/sprite.png', 's-nav-prev', );
+$s-search-name: 's-search';
+$s-search-x: 29px;
+$s-search-y: 32px;
+$s-search-offset-x: -29px;
+$s-search-offset-y: -32px;
+$s-search-width: 15px;
+$s-search-height: 15px;
+$s-search-total-width: 64px;
+$s-search-total-height: 50px;
+$s-search-image: '../img/sprite.png';
+$s-search: (29px, 32px, -29px, -32px, 15px, 15px, 64px, 50px, '../img/sprite.png', 's-search', );
+$s-zum-name: 's-zum';
+$s-zum-x: 0px;
+$s-zum-y: 25px;
+$s-zum-offset-x: 0px;
+$s-zum-offset-y: -25px;
+$s-zum-width: 22px;
+$s-zum-height: 25px;
+$s-zum-total-width: 64px;
+$s-zum-total-height: 50px;
+$s-zum-image: '../img/sprite.png';
+$s-zum: (0px, 25px, 0px, -25px, 22px, 25px, 64px, 50px, '../img/sprite.png', 's-zum', );
+$spritesheet-width: 64px;
+$spritesheet-height: 50px;
+$spritesheet-image: '../img/sprite.png';
+$spritesheet-sprites: ($s-basket, $s-enter, $s-nav-next, $s-nav-prev, $s-search, $s-zum, );
+$spritesheet: (64px, 50px, '../img/sprite.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

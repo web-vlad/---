@@ -1,0 +1,276 @@
+.listProducts {
+    margin: 0 -7px;
+    .col {
+        flex: 0 0 25%;
+        max-width: 25%;
+        padding: 0 7px;
+        margin-bottom: 20px;
+    }
+}
+.item-product {
+    .wrapp-inner {
+        background: #fff;
+        padding: 15px 10px;
+        border: 2px solid #ddd;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transform-origin: center;
+        @include img-transition();
+        &:hover {
+            border-color: #7A7F6E;
+            /*transform: scale(1.01);*/
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        }
+    }
+    .item-product__img {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 180px;
+        line-height: 0;
+        overflow: hidden;
+        img {
+            @include img-transition();
+            @include transform-position();
+        }
+        &:after {
+            @include pseudo();
+            @include sprite($s-zum);
+        }
+        &:hover {
+            img {
+                @include scale();
+            }
+        }
+    }
+    .item-product__desk {
+        height: 67px;
+        text-align: center;
+        padding: 5px 0;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+    }
+    .item-product__title {
+        font-weight: 500;
+        font-size: 1.6rem;
+        color: #040404;
+        display: inline-block;
+        max-width: 100%;
+        line-height: 1.1;
+    }
+    .item-product__title:hover {
+        color: #c00;
+    }
+    .item-product__footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+    }
+    .item-product__price, .product-form {
+        flex-basis: 0;
+        max-width: 100%;
+        flex-grow: 1;
+    }
+    .item-product__price {
+        flex: 0 0 70px;
+        max-width: 70px;
+        line-height: 1;
+    }
+    .old-price {
+        display: inline-block;
+        margin: 0;
+        span {
+            position: relative;
+            &:after {
+                background: #111;
+                @include pseudo();
+                width: 100%;
+                height: 1px;
+                top: 50%;
+                left: 0;
+                transform: rotate(-10deg);
+            }
+        }
+    }
+    .price {
+        font-weight: 700;
+        display: block;
+    }
+    .product-form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-items: center;
+        > div {
+            margin: 2px;
+        }
+    }
+    .btn {
+        font-weight: 500;
+        font-size: 1.4rem;
+        width: 100%;
+        height: 30px;
+        line-height: 29px;
+        padding: 0 15px;
+    }
+}
+/*--------------------------------------------------------- SNIPPER ----------------------------------------*/
+.spinner
+{
+    display: inline-block;
+    min-width: 70px;
+    vertical-align: middle;
+}
+/*.spinner label{
+    display: block;
+    color: #765F59;
+    float: left;
+    line-height: 36px;
+    margin-right: 10px;
+}*/
+.input-group-addon {
+    background: #853842;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 1px;
+    overflow: hidden;
+    /*border-top: 1px solid #efedee;
+    border-bottom: 1px solid #efedee;*/
+}
+.spinner .form-control {
+    font-weight: 700;
+    font-size: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    color: #404040;
+    display: inline-block;
+    width: 31px;
+    height: 28px;
+    float: left;
+    border: none;
+    padding: 0 1px;
+    line-height: 20px;
+    text-align: center;
+}
+.snip-button {
+    position: relative;
+    width: 22px;
+    height: 28px;
+    float: left;
+    text-align: center;
+    line-height: 0;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include all-transition();
+    &:hover {
+        background: #a42c3b;
+    }
+}
+.snip-button .fa {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.6rem;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+.fa-caret-down {
+    margin-top: -1px;
+}
+@media (max-width: 1400px) {
+    .listProducts {
+        margin: 0 -5px;
+        .col {
+            padding: 0 5px;
+        }
+    }
+}
+@media (max-width: 1200px) {
+    .listProducts {
+        .col {
+            flex: 0 0 33.33333%;
+            max-width: 33.33333%;
+        }
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .listProducts {
+        .col {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+}
+@media (max-width: 640px) {
+    .listProducts {
+        .col {
+            flex: 0 0 50%;
+            max-width: 50%;
+            margin-bottom: 10px;
+        }
+    }
+}
+@media (max-width: 460px) {
+    .listProducts {
+        margin: 0 -3px;
+        .col {
+            padding: 0 3px;
+        }
+    }
+    .item-product {
+        .wrapp-inner {
+            padding-bottom: 10px;
+        }
+        .item-product__img {
+            height: 100px;
+        }
+        .item-product__desk {
+            height: 60px;
+        }
+        .item-product__title {
+            font-size: 1.4rem;
+        }
+        .item-product__price, .product-form {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+        .item-product__price {
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        .price {
+            display: inline-block;
+            margin-left: 3px;
+        }
+        .product-form {
+            justify-content: center;
+        }
+    }
+}
+@media (max-width: 360px) {
+    .item-product {
+        .wrapp-inner {
+            padding: 10px 5px;
+        }
+        .item-product__desk {
+            height: 52px;
+        }
+        .item-product__title {
+            font-size: 1.3rem;
+        }
+        .item-product__price {
+            font-size: 1.4rem;
+        }
+    }
+}

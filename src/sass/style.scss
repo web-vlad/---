@@ -1,0 +1,35 @@
+@import 'fonts';
+@import 'global/mixins';
+@import 'global/vars';
+/*  ==== RESET ==== */
+@import 'global/reset';
+
+/*  === SPRITE === */
+@import 'sprite';
+
+/* === HEADER === */
+@import '../blocks/header/header';
+
+/*  === CONTENT === */
+@import '../blocks/content/content';
+
+/*  === CATEGORY=== */
+@import '../blocks/category/category';
+
+/*  === PRODUCTS === */
+@import '../blocks/products/products';
+
+/*  === LEFT BAR === */
+@import '../blocks/left-bar/left-bar';
+
+/*  === FORM === */
+@import '../blocks/form/form';
+
+/*  === Checkbox === */
+@import 'check';
+
+/*  === Footer === */
+@import '../blocks/footer/footer';
+
+/*  === modal === */
+@import '../blocks/modal/modal';

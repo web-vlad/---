@@ -1,0 +1,93 @@
+//  Стандартный transition для hover-анимаций
+@mixin transition {
+    transition: 0.3s cubic-bezier(0.250, 0.100, 0.250, 1.000);
+}
+//@mixin spriteImage($sprite) {
+    //background-image: url( unquote('../img/' + nth($sprite,9)));
+//}
+
+// Миксин замены цвета placeholder у input.
+// Нужно добавить в стилях элемента конструкцию вида @include placeholder(#000);
+/*@mixin placeholder($color) {
+    &::-webkit-input-placeholder {
+      color:$color;
+    }
+    &::-moz-placeholder {
+      color:$color;
+    }
+    &:-ms-input-placeholder {
+      color:$color;
+    }
+}*/
+//  links transition
+@mixin link-transition() {
+    transition: background 0.3s ease-in-out,border-color 0.3s ease-in-out,color 0.3s ease-in-out;
+}
+@mixin all-transition() {
+    transition: all 0.3s ease;
+}
+@mixin img-transition() {
+    transition: all 0.5s ease;
+}
+@mixin scale() {
+    transform: scale(1.1);
+}
+@mixin scale-all() {
+    transform: scale(0);
+}
+@mixin scale-all-hover() {
+    transform: scale(1);
+}
+@mixin scale-x() {
+    transform: scaleX(0);
+}
+@mixin scale-x-hover() {
+    transform: scaleX(1);
+}
+@mixin scale-y() {
+    transform: scaleY(0);
+}
+@mixin scale-y-hover() {
+    transform: scaleY(1);
+}
+@mixin transform-position() {
+    transform-origin: center center;
+}
+@mixin all-sprite() {
+    position: absolute;
+    display: block;
+    content: "";
+    top: 50%;
+    left: 0;
+}
+@mixin pseudo() {
+    position: absolute;
+    display: block;
+    content: "";
+}
+@mixin all-pseudo() {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+@mixin sprite-pseudo() {
+    position: absolute;
+    display: block;
+    content: "";
+    top: 50%;
+    left: 0;
+}
+@mixin box-img() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// ANIME
+@mixin anim-img() {
+    animation: bounce 1s;
+}

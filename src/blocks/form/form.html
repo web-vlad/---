@@ -1,0 +1,33 @@
+<div class="content-form">
+    <strong class="contact-label contact-label--form">Задайте вопрос</strong>
+    <form action=""  name="call-form" class="call-form" method="post">
+        <div class="form-group row">
+            <div class="block-input col">
+                <input type="text" name="name" placeholder="имя"  required />
+            </div>
+            <div class="block-input col">
+                <input type="tel" name="phone" placeholder="телефон" required />
+            </div>
+            <div class="block-input col">
+                <input type="email" name="email" placeholder="e-mail" required />
+            </div>
+        </div>
+
+        <div class="block-input block-message">
+            <textarea name="message" placeholder="сообщение"></textarea>
+        </div>
+        <div class="form-button">
+            <div class="check form-button__one">
+                <label class="check__wrapp">
+                    <input class="check__type checked-radio" checked="checked" type="checkbox" required />
+                    <span class="check__custom"></span>
+                    <span class="check__label">Я согласен с обработкой моих персональных данных</span>
+                </label>
+            </div>
+            <div class="form-button__second">
+                <button class="btn btn--1" type="submit">Отправить</button>
+            </div>
+        </div>
+        <input type="hidden" name="content" />
+    </form>
+</div>

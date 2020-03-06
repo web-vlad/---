@@ -1,0 +1,84 @@
+/* ! -- CHECKBOX -- */
+.checkboxes {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    /*flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;*/
+    align-items: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+}
+.check {
+    .check__wrapp {
+        cursor: pointer;
+        display: flex;
+        /*align-items: center;*/
+        position: relative;
+    }
+    .check__type {
+        display:none;
+    }
+    .check__custom {
+        background: #fff;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 13px;
+        flex: 0 0 13px;
+        max-width: 13px;
+        height: 13px;
+        /*line-height: 19px;
+        border-radius: 50%;*/
+        border: none;
+        margin-top: 2px;
+        &:before {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #00c;
+            /*background: #87b453;*/
+            position: relative;
+            display: block;
+            content: '\2714';
+            /*@include sprite($s-check);*/
+            /*top: 50%;
+            left: 50%;
+            margin: -4px 0 0 -4px;
+            border-radius: 50%;*/
+            @include all-transition();
+            opacity: 0;
+        }
+    }
+    .check__label {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.2rem;
+        color: #fff;
+        text-transform: none;
+        display: block;
+        line-height: 1.5em;
+        text-align: left;
+        padding-left: 12px;
+    }
+    .check__type:checked + .check__custom:before {
+        opacity: 1;
+    }
+    /*.check__label img {
+        @include all-transition();
+        filter: grayscale(100%);
+        filter: gray;
+        opacity: 0.8;
+    }
+    .check__type:checked ~ .check__label img {
+        -webkit-filter: none;
+        -moz-filter: none;
+        -ms-filter: none;
+        -o-filter: none;
+        filter: none;
+        opacity: 1;
+    }*/
+}
